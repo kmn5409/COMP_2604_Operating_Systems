@@ -40,7 +40,6 @@ int main(int argc, char* argv[]){
             else{
                 PrintGolomb(num);
             }
-            num--;
             //printf("")
         }
     }
