@@ -19,23 +19,18 @@ void printGolumb(int n) //prints Golumb Sequence up to n
 printf("%d ",golumb(i));
 }
 
-int main(void)
+int main(int argc, char* argv[])
 {
   pid_t id;
-  //getting user input
-  char x[30];
-  printf("Enter a number that is more than 0.  ");
-  fflush(stdout);
-  fgets(x, 30, stdin);
  
-  while(atoi(x)==0)
+  while(atoi(argv[1])<=0)
  {
   printf("Enter a number more than 0.  ");
   fflush(stdout);
-  fgets(x, 30, stdin);
+  fgets(argv[1], 30, stdin);
  }
 
-  int num=atoi(x); 
+  int num=atoi(argv[1]); 
   id=fork();
   int status;
 
