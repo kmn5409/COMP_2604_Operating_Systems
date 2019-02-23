@@ -11,10 +11,11 @@ int Golomb(int n){
 }
 
 void PrintGolomb(int n){
-    int k;
-    for(int i=1; i<=n; i++)
+    for(int i=1; i<=n; i++){
         printf("%d ",Golomb(i));
-    printf("\n");
+    }
+    //printf("%d ",Golomb(n));
+    //printf("\n");
 
 }
 
@@ -26,10 +27,20 @@ int main(int argc, char* argv[]){
             printf("Not a number\n");
         else{
             int num = atoi(argv[1]);
+            int status;
             pid_t pid;
             printf("Number: %d\n",num);
             printf("Answer: ");
-            PrintGolomb(num);
+            fflush(stdout);
+            pid = fork();
+            if(pid > 0){
+                pid = wait(&status);
+                //PrintGolomb(num);
+            }
+            else{
+                PrintGolomb(num);
+            }
+            num--;
             //printf("")
         }
     }
