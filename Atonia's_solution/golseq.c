@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
 {
   pid_t id;
  
-  while(atoi(argv[1])<=0)
+  while(atoi(argv[1])<=0) //no number or negative number in input
  {
   printf("Enter a number more than 0.  ");
   fflush(stdout);
