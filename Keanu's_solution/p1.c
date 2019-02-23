@@ -33,11 +33,11 @@ int main(int argc, char* argv[]){
             printf("Answer: ");
             fflush(stdout);
             pid = fork();
-            if(pid > 0){
+            if(pid > 0){//Parent Process
                 pid = wait(&status);
                 //PrintGolomb(num);
             }
-            else{
+            else{//Child process
                 PrintGolomb(num);
             }
             //printf("")
