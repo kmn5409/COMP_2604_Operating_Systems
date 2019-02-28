@@ -45,7 +45,7 @@ int main(int argc, char* argv[])
 
   if(id==0) //print in child
 printGolomb(num);
-  else if(id>1)  //wait on child
+  else if(id>0)  //wait on child
   {
 id=wait(&status);
 printf("\nFinished."); //end of sequence
