@@ -67,9 +67,22 @@ void *before(void *arr){
 }
 
 //gcc -pthread q1.c 
-int main(int main, char* argv[]){
+//need to check over doesn't work with 1
+int main(int argc, char* argv[]){
     //https://stackoverflow.com/questions/22003083/passing-array-as-argument-to-a-new-thread-in-c
-    int n = 10;
+    if(argc == 1){
+        printf("Run with a number\n");
+        return 0;
+    }
+
+    while(atoi(argv[1])<=0) //no number or negative number in input
+    {
+        printf("Enter a number more than 0.  ");
+        fflush(stdout);
+        fgets(argv[1], 30, stdin);
+    }
+    int n=atoi(argv[1]);
+
     int *arr = (int *)malloc((n-1)*sizeof(int));
     //int size = 1;
 
