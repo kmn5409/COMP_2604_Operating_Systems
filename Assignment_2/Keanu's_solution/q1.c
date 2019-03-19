@@ -83,6 +83,7 @@ int main(int argc, char* argv[]){
     }
     int n=atoi(argv[1]);
 
+    //n+=1;
     int *arr = (int *)malloc((n-1)*sizeof(int));
     //int size = 1;
 
@@ -107,7 +108,7 @@ int main(int argc, char* argv[]){
     //before(arr);
     printf("\nSorted:\n");
 
-    quickSort(arr,0,n);
+    quickSort(arr,0,n-1);
     for(int i=0;i<n;i++)
         printf("%d\n",arr[i]);
     return 0;
