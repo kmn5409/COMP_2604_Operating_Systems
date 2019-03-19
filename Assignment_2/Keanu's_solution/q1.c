@@ -3,6 +3,9 @@
 #include <unistd.h>
 #include <pthread.h>
 
+
+//Declares a global variable which is the size of the array
+//Is initialized to 0 at first
 int size = 0;
 
 void swap(int* a, int* b) 
@@ -92,16 +95,20 @@ int main(int argc, char* argv[]){
     time_t t;
     srand((unsigned) time(&t));
 
+    //initializes the array with random values in the parent process
     for(int i=0;i<n;i++){
         arr[i] = rand()%1000;
         size++;
     }
 
 
+    //Prints out the array which would be unsorted
     for(int i=0;i<n;i++)
         printf("%d\n",arr[i]);
 
     int e;
+    //Created the child thread and sorts the array
+    //The parent thread would wait for the child thread to finish
     e = pthread_create(&thread_id,NULL, &before, (void*)arr);
     e = pthread_join(thread_id,NULL);
     //printf("%d",size);
