@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include <pthread.h>
 
-
+//gcc -pthread q1.c 
 //Declares a global variable which is the size of the array
 //Is initialized to 0 at first
 int size = 0;
@@ -56,20 +56,11 @@ void *quickSort(int arr[], int low, int high)
 
 void *before(void *arr){
     printf("\nChild thread sorting\n");
-    int arr1[size];
     int *val = (int *) arr;
-    for(int i=0;i<size;i++)
-        arr1[i] = val[i];
-    /*
-    printf("\nBefore:\n");
-    for(int i=0;i<size;i++)
-        printf("%d\n",arr[i]);
-    */
-    quickSort(arr1,0,size);
-    //printf("\nHere\n%d\n",size);
+        
+    quickSort(val,0,size-1);
 }
 
-//gcc -pthread q1.c 
 //need to check over doesn't work with 1
 int main(int argc, char* argv[]){
     //https://stackoverflow.com/questions/22003083/passing-array-as-argument-to-a-new-thread-in-c
@@ -115,7 +106,7 @@ int main(int argc, char* argv[]){
     //before(arr);
     printf("\nSorted:\n");
 
-    quickSort(arr,0,n-1);
+    //quickSort(arr,0,n-1);
     for(int i=0;i<n;i++)
         printf("%d\n",arr[i]);
     return 0;
