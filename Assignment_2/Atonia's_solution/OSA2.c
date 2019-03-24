@@ -96,7 +96,7 @@ int main (int argc, char* argv[])
 	//join thread
 	stat=pthread_join(id, NULL);
 
-	//error is join returns value other than 0
+	//error if join returns value other than 0
 	if (stat)
 	{
 		printf("Error joining thread\n");
