@@ -39,7 +39,7 @@ void quicksort(int arr[], int lo, int hi)
     if (lo<hi)
     {
     int dp=partition(lo, hi, arr);
-    quicksort(arr, lo, dp-1);
+    quicksort(arr, lo, dp);
     quicksort(arr, dp+1, hi);
     }
 }
