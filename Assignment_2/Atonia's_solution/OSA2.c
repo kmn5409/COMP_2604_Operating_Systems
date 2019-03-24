@@ -1,6 +1,7 @@
 /*
 	This program sorts an array of n (given in command line) random numbers in a child thread.  The parent thread waits on the child
 	and the sorted array is printed to the screen.
+	To run: gcc -pthread q1.c
 */
 #include <stdio.h>
 #include <stdlib.h>
